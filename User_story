@@ -36,3 +36,11 @@ Object          Messages
 Person
 bike            docked
 DockingStation  check_bikes
+
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available.
+
+Object          Messages
+Person
+DockingStation  not_release
