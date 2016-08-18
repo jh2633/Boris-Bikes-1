@@ -1,4 +1,3 @@
-
 class Van
   def initialize
     @broken_bike_store = []
@@ -6,22 +5,22 @@ class Van
   end
 
 
-  def collect(bikes)
-    @broken_bike_store += bikes
+  def collect(bikes,target)
+    if target == :fixed
+      @fixed_bike_store += bikes
+    elsif target == :broken
+      @broken_bike_store += bikes
+    end
   end
 
-  def collect_fix_bike(bikes)
-    @fixed_bike_store += bikes
-  end
-
-  def drop_fix_bike(docking_station)
-    docking_station.collect(@fixed_bike_store)
-    @fixed_bike_store = []
-  end
-
-  def drop(garage)
-    garage.collect(@broken_bike_store)
-    @broken_bike_store = []
+  def give_bike(destination,target)
+    if target == :fixed
+      destination.collect(@fixed_bike_store)
+      @fixed_bike_store = []
+    elsif target == :broken
+      destination.collect(@broken_bike_store)
+      @broken_bike_store = []
+    end
   end
 
 end
