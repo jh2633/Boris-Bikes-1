@@ -1,5 +1,6 @@
 require_relative 'bike'
-
+require_relative 'van'
+require_relative 'garage'
 class DockingStation
   DEFAULT_CAPACITY = 20
 
@@ -21,6 +22,15 @@ class DockingStation
     else
       @broken_bike_store << bike
     end
+  end
+
+  def give_bike(van)
+    van.collect(@broken_bike_store)
+    @broken_bike_store = []
+  end
+
+  def collect(bikes)
+    @bike_store += bikes
   end
 
 private

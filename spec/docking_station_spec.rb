@@ -5,7 +5,10 @@ describe DockingStation do
 before do
   @working_bike = double(:bike, :working? => true)
   @broken_bike = double(:bike, :working? => false)
+  @van = double(:van, :collect => true)
 end
+
+
 
   describe '#release_bike' do
     it 'releases a docked bike' do
@@ -41,6 +44,15 @@ end
       30.times { docking_station.dock @working_bike }
       expect {docking_station.dock(@working_bike)}.to raise_error 'Docking Station is full'
     end
+  end
+
+  it 'should take fixed bikes from van' do
+    @fixed_bike = double(:bike, :working? =>true)
+    expect(subject.collect([@fixed_bike])).to eq [@fixed_bike]
+  end
+
+  it 'van taking bike' do
+    expect(subject.give_bike(@van)).to eq []
   end
 
 end
