@@ -1,7 +1,7 @@
 require 'docking_station'
 
 describe DockingStation do
-  
+
   describe '#release_bike' do
     it 'releases a docked bike' do
       bike = Bike.new
@@ -21,7 +21,7 @@ describe DockingStation do
     end
 
     it 'refuses more bikes when no capacity' do
-      20.times { subject.dock Bike.new }
+      DockingStation::DEFAULT_CAPACITY.times { subject.dock Bike.new }
       expect {subject.dock(Bike.new)}.to raise_error 'Docking Station is full'
     end
   end
