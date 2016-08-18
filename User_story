@@ -52,3 +52,11 @@ I'd like docking stations not to accept more bikes than their capacity.
 Object          Messages
 person
 DockingStation  refuse_bike
+
+As a system maintainer,
+So that I can plan the distribution of bikes,
+I want a docking station to have a default capacity of 20 bikes.
+
+Object          Messages
+person
+DockingStation refuse_bikes(if bikes > 20)
